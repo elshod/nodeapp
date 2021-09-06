@@ -1,0 +1,24 @@
+<h1>{{title}}</h1>
+<a href="/cars/new">Yangi avtomobil</a>
+<table class="table">
+    <tr>
+        <th>Model</th>
+        <th>Rangi</th>
+        <th>Bosib o'tgan yo'li</th>
+        <th>Ishlab chiqarilgan yili</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {{#each cars}}
+    <tr>
+        <td>{{model}}</td>
+        <td style="background-color: {{color}};">{{color}}</td>
+        <td>{{distance}}</td>
+        <td>{{year}}</td>
+        <td><a href="/cars/show/{{_id}}">Batafsil</a></td>
+        <td><a href="/cars/delete/{{_id}}">O'chirish</a></td>
+        <td><a href="/cars/edit/{{_id}}">Tahrirlash</a></td>
+    </tr>
+    {{/each}} 
+</table>

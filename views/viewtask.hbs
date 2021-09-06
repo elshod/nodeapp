@@ -1,0 +1,33 @@
+<h1>{{title}}</h1>
+<div class="status">{{task.status}}</div>
+<div class="text">{{task.text}}</div>
+<hr>
+<a href="/tasks/delete/{{task._id}}" class="btn btn-danger">O'chirish</a>
+<hr>
+{{#if task.comments.comment.length}}
+    <h4>Izohlar ro'yhati</h4>
+    {{#each task.comments.comment}}
+    <figure>
+        <blockquote class="blockquote">{{text}}</blockquote>
+        <figcaption class="blockquote-footer">
+            {{createdAt}} 
+            <cite title="Source Title">{{userId.name}}</cite>
+        </figcaption>
+        <a href="/tasks/{{../task._id}}/delcomment/{{_id}}" class="btn btn-danger">O'chirish</a>
+    </figure>
+    {{/each}}
+    <hr>
+{{/if}}
+
+
+<form action="/tasks/comment/{{task._id}}" method="POST">
+    <label class="form-label">Izoh qoldiruvchi</label>
+    <select name="userId" class="form-select mb-3">
+        {{#each users}}
+            <option value="{{_id}}">{{name}} | {{email}}</option>
+        {{/each}}
+    </select>
+    <label class="form-label">Izoh matni</label>
+    <textarea name="text" class="form-control mb-3" rows="10"></textarea>
+    <button type="submit" class="btn btn-primary">Izoh qoldirish</button>
+</form>

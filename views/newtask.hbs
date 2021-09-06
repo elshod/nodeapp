@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<form action="/tasks" method="POST">
+    <input type="text" class="form-control mb-3" name='title' placeholder="Topshiriq sarlavhasi" required>
+    <textarea name="text" class="form-control mb-3" placeholder="Topshiriq matni" rows="10"></textarea>
+    <select class="form-select mb-3" name="userId">
+        <option selected>Xodimni tanlang</option>
+        {{#each users}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit" class="btn btn-primary">Jo'natish</button>
+</form>
